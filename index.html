@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#eef8ff">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ぼうさいポン">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>ぼうさいポン！｜あそんでまなぶ ぼうさい</title>
 <style>
 :root{font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,system-ui,sans-serif;color:#244461;background:#eef8ff}
@@ -171,10 +178,12 @@ body.big .bigbtn{font-size:28px}
  <div class="setitem"><div class="lbl">🔠 もじの おおきさ</div><div class="seg" data-set="big"><button data-v="off">ふつう</button><button data-v="on">おおきい</button></div></div>
  <button class="primary secondary" id="testVoice">🔊 こえを ためす</button>
  <div class="note" id="voiceWarn">このせっていは この たんまつ（スマホ・PC）の中だけに ほぞんされます。なまえ などの こじんじょうほうは あつめません。</div>
+ <div class="setitem"><div class="lbl">📶 ネットが ないとき</div><div class="info" style="text-align:left" id="offlineStatus">じゅんび ちゅう…</div>
+  <div class="note" style="margin-top:10px">【ホーム画面に追加する方法（保護者・支援者向け）】<br>iPhone：Safariの共有ボタン →「ホーム画面に追加」<br>Android：Chromeのメニュー（︙）→「ホーム画面に追加」または「アプリをインストール」<br>一度ネットにつないで開いておくと、そのあとは電波がなくても使えます。</div></div>
  <button class="smallbtn" id="resetBadges" style="width:100%;margin-top:18px">🗑️ バッジを リセット（保護者・支援者用）</button>
 </section>
 
-</main><footer class="foot">ぼうさいポン！ 試作版 v1.1／学習・操作確認用<br>© ぼうさいポン！ プロトタイプ</footer>
+</main><footer class="foot">ぼうさいポン！ 試作版 v1.2／学習・操作確認用<br>© ぼうさいポン！ プロトタイプ</footer>
 </div>
 <script>
 'use strict';
@@ -287,5 +296,11 @@ el('testVoice').addEventListener('click',()=>{if(!('speechSynthesis' in window))
 el('resetBadges').addEventListener('click',()=>{if(confirm('バッジを ぜんぶ けしますか？')){state.badges=[];save();renderBadges()}});
 
 applySettings();renderBadges();renderModebars();
+
+/* ===== オフライン対応（PWA） ===== */
+function setOffline(t){el('offlineStatus').textContent=t}
+if('serviceWorker' in navigator&&location.protocol!=='file:'){
+ navigator.serviceWorker.register('sw.js').then(()=>navigator.serviceWorker.ready).then(()=>setOffline('✅ この たんまつに ほぞん できました。ネットが なくても つかえます。')).catch(()=>setOffline('⚠️ オフラインの じゅんびが できませんでした。ネットに つないで つかってね。'));
+}else{setOffline(location.protocol==='file:'?'ファイルを直接開いているため、オフライン保存は使えません（Webで公開したURLから開くと使えます）。':'この ブラウザは オフラインに たいおう していません。');}
 </script>
 </body></html>
