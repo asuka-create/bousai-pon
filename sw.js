@@ -1,7 +1,7 @@
 'use strict';
-// ぼうさいポン！ Service Worker
+// まもってポン！ Service Worker
 // 中身を変えたら VERSION を上げる（古いキャッシュが消えて新しいファイルに入れかわる）
-const VERSION = 'v1.2.0';
+const VERSION = 'v1.3.0';
 const CACHE = 'bousaipon-' + VERSION;
 const FILES = ['./', './index.html', './manifest.webmanifest', './icon.svg', './icon-192.png', './icon-512.png', './icon-180.png'];
 

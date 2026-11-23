@@ -8,9 +8,9 @@
 <link rel="apple-touch-icon" href="icon-180.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="ぼうさいポン">
+<meta name="apple-mobile-web-app-title" content="まもってポン">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<title>ぼうさいポン！｜あそんでまなぶ ぼうさい</title>
+<title>まもってポン！｜あそんでまなぶ ぼうさい</title>
 <style>
 :root{font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,system-ui,sans-serif;color:#244461;background:#eef8ff}
 *{box-sizing:border-box}
@@ -74,7 +74,7 @@ button:disabled{opacity:.5;cursor:not-allowed}
 .center{text-align:center}
 .score{font-size:53px;font-weight:950;color:#289883}
 .foot{font-size:12px;color:#627989;line-height:1.7;text-align:center;margin-top:22px}
-.badges{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;background:#f7fbff;border:2px solid #dcebf3;border-radius:18px;padding:10px 8px;margin-top:14px}
+.badges{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;background:#f7fbff;border:2px solid #dcebf3;border-radius:18px;padding:10px 8px;margin-top:14px}
 .badge{text-align:center;font-size:11px;font-weight:900;color:#5a7b8f}
 .badge .b{font-size:30px;line-height:1.2;display:block}
 .badge.off .b{filter:grayscale(1);opacity:.25}
@@ -88,6 +88,56 @@ button:disabled{opacity:.5;cursor:not-allowed}
 .sr-only{position:absolute;clip:rect(0,0,0,0);width:1px;height:1px;overflow:hidden}
 .hidden{display:none!important}
 .burst{position:relative;display:inline-block}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.minitile{border:0;border-radius:20px;min-height:96px;padding:12px 6px;font-size:19px;font-weight:950;color:#304962;box-shadow:0 5px 0 #00000012;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.minitile .ico{font-size:34px;line-height:1}
+.lav{background:#ebe3ff}
+.parentlink{width:100%;margin-top:16px;border:2px dashed #b9cfdb;background:#fbfdff;color:#4c6c80;border-radius:16px;min-height:52px;font-weight:900;font-size:16px}
+/* マンガ */
+.eplist button{width:100%;display:flex;align-items:center;gap:12px;text-align:left;border:3px solid #e4dcf7;background:#fbf9ff;border-radius:18px;padding:12px;margin:8px 0;min-height:72px;font-weight:950;font-size:19px;color:#4a3d72}
+.eplist .num{background:#8f7ad6;color:white;border-radius:12px;padding:6px 9px;font-size:14px;white-space:nowrap}
+.eplist .ok{margin-left:auto;font-size:22px}
+.panel{border:4px solid #3f4b5a;border-radius:18px;overflow:hidden;background:white;margin-top:12px}
+.panel .scene{margin:0;border-radius:0;max-height:240px}
+.speech{display:flex;gap:10px;align-items:flex-start;margin-top:14px}
+.face{flex:0 0 64px;text-align:center;font-size:12px;font-weight:900;color:#5a6c7a}
+.face svg{width:64px;height:64px;display:block}
+.say{position:relative;flex:1;background:white;border:3px solid #3f4b5a;border-radius:20px;padding:12px 14px;font-size:21px;font-weight:950;line-height:1.55;color:#2f3c48}
+.say::before{content:'';position:absolute;left:-12px;top:20px;border:10px solid transparent;border-right-color:#3f4b5a;border-left:0}
+.say::after{content:'';position:absolute;left:-7px;top:22px;border:8px solid transparent;border-right-color:white;border-left:0}
+.cast{display:flex;justify-content:center;gap:14px;margin:10px 0}
+/* チェックリスト */
+.check{width:100%;display:flex;align-items:center;gap:12px;border:3px solid #d9ecd9;background:#f8fff8;border-radius:16px;padding:10px 14px;margin:8px 0;min-height:64px;font-size:20px;font-weight:950;color:#2f5b3a;text-align:left}
+.check .em{font-size:30px}
+.check .box{margin-left:auto;width:34px;height:34px;border:3px solid #9cc9a3;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;background:white}
+.check[aria-pressed="true"]{background:#dff6e2;border-color:#5fb86f}
+.check[aria-pressed="true"] .box{background:#5fb86f;border-color:#5fb86f;color:white}
+/* カード */
+.mycard{border:4px solid #f2a7b8;background:#fff7f9;border-radius:24px;padding:16px;margin-top:12px}
+.mycard h3{margin:0 0 8px;font-size:24px;color:#a13d5a;text-align:center}
+.mycard .nick{text-align:center;font-size:28px;font-weight:950;color:#5a2b3a;margin-bottom:8px}
+.cardrow{display:flex;align-items:center;gap:12px;background:white;border-radius:14px;padding:10px 12px;margin:8px 0;font-size:20px;font-weight:950;color:#5a3a46}
+.cardrow .em{font-size:30px}
+/* 連絡 */
+.contact{display:flex;align-items:center;gap:10px;background:#f4fbff;border:3px solid #cfe7f3;border-radius:16px;padding:10px 12px;margin:8px 0}
+.contact .nm{flex:1;font-weight:950;font-size:19px;color:#2b5f7e}
+.callbtn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 16px;border-radius:14px;background:#4cb56b;color:white;font-weight:950;font-size:18px;text-decoration:none}
+.emerg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.emerg div{background:#fff3ee;border:2px solid #f5c3ad;border-radius:14px;padding:10px;text-align:center;font-weight:900;color:#7a3a1d}
+.emerg b{display:block;font-size:30px}
+/* 保護者 */
+.form label{display:block;font-weight:900;color:#2b5f7e;margin:12px 0 4px;font-size:15px}
+.form input[type=text],.form input[type=tel],.form input[type=date],.form textarea{width:100%;font:inherit;font-size:17px;padding:11px;border:2px solid #cfe3ee;border-radius:12px;background:white}
+.form textarea{min-height:76px}
+.cbrow{display:flex;align-items:center;gap:10px;padding:8px 4px;font-weight:850;font-size:16px}
+.cbrow input{width:24px;height:24px}
+.holdbtn{position:relative;overflow:hidden}
+.holdbtn .fill{position:absolute;left:0;top:0;bottom:0;width:0;background:#ffffff70}
+.planbox{background:#f1fbf1;border:3px solid #bfe3c2;border-radius:18px;padding:14px;margin-top:12px;font-weight:900;line-height:1.8;color:#2f5b3a}
+.planbox .k{font-size:13px;color:#5c8a63}
+.planbox .v{font-size:20px}
+body.short #stepDesc{display:none}
+a:focus-visible{outline:4px solid #176ad8;outline-offset:3px}
 @media(prefers-reduced-motion:no-preference){
  body:not(.easy) .mascot{animation:bob 2.9s ease-in-out infinite}
  body:not(.easy) .pop{animation:pop .6s ease-out}
@@ -107,20 +157,27 @@ body.big .bigbtn{font-size:28px}
 </head>
 <body>
 <div class="shell">
-<header class="top"><div><div class="brand">🐾 ぼうさいポン！</div><span class="tag">あそんで まなぶ ぼうさい</span></div><button class="smallbtn" id="settingsBtn" aria-label="せってい">⚙️ せってい</button></header>
+<header class="top"><div><div class="brand">🐾 まもってポン！</div><span class="tag">あそんで まなぶ ぼうさい</span></div><button class="smallbtn" id="settingsBtn" aria-label="せってい">⚙️ せってい</button></header>
 <main>
 
 <!-- S01 ホーム -->
 <section id="home" class="screen active" aria-labelledby="homeTitle">
- <div class="hero"><h1 id="homeTitle">ぼうさいポン！</h1><p>ぽちっと おしてね！</p>
+ <div class="hero"><h1 id="homeTitle">まもってポン！</h1><p>ぽちっと おしてね！</p>
  <svg class="mascot" role="img" aria-label="黄色い防災リュックを背負った犬のポンちゃん" viewBox="0 0 240 248"><ellipse cx="120" cy="231" rx="79" ry="10" fill="#bcdbe3"/><path d="M53 127Q25 120 38 79Q57 51 80 89L87 148Z" fill="#b97846"/><path d="M178 127Q209 111 203 79Q190 54 162 91L156 149Z" fill="#b97846"/><rect x="67" y="137" width="104" height="96" rx="45" fill="#dba165"/><rect x="145" y="150" width="48" height="66" rx="16" fill="#ffcf58" stroke="#c99027" stroke-width="5"/><path d="M151 170H188" stroke="#c99027" stroke-width="5"/><rect x="165" y="173" width="10" height="16" rx="3" fill="#fffcdf"/><circle cx="120" cy="100" r="79" fill="#e9b57b"/><path d="M55 50Q20 3 35 99L68 114Z" fill="#bb7d4b"/><path d="M184 51Q224 6 207 100L176 114Z" fill="#bb7d4b"/><ellipse cx="120" cy="134" rx="53" ry="40" fill="#fff1df"/><ellipse cx="88" cy="101" rx="8" ry="11" fill="#423d40"/><ellipse cx="153" cy="101" rx="8" ry="11" fill="#423d40"/><ellipse cx="120" cy="126" rx="13" ry="9" fill="#4b4343"/><path d="M120 132v10m0 0q-17 19-31 0m31 0q18 19 31 0" fill="none" stroke="#624a45" stroke-width="4" stroke-linecap="round"/><circle cx="71" cy="124" r="12" fill="#f3a89a" opacity=".7"/><circle cx="170" cy="124" r="12" fill="#f3a89a" opacity=".7"/><path d="M80 195Q57 196 41 171" stroke="#e9b57b" stroke-width="23" fill="none" stroke-linecap="round"/><path d="M164 192Q187 181 203 152" stroke="#e9b57b" stroke-width="23" fill="none" stroke-linecap="round"/><circle cx="205" cy="149" r="13" fill="#e9b57b"/><path d="M87 229v9m66-9v9" stroke="#b47b48" stroke-width="17" stroke-linecap="round"/></svg>
  <div class="bubble">ぼくは ポン！<br>いっしょに ぼうさいを まなぼう！</div></div>
  <button class="bigbtn b-practice" id="practiceStart"><span class="ico">📘</span><span>れんしゅう<small>じしん・あめ・つなみ・かじ</small></span></button>
+ <button class="bigbtn lav" id="mangaStart" style="color:#4a3d72;box-shadow:0 6px 0 #d3c6f5"><span class="ico">📖</span><span>ぼうさいマンガ<small>ポンと なかまの おはなし</small></span></button>
  <button class="bigbtn b-game" id="quizStart"><span class="ico">🎮</span><span>ぼうさいゲーム<small>クイズで バッジを あつめよう</small></span></button>
+ <div class="grid2">
+  <button class="minitile mint" id="bagStart"><span class="ico">🎒</span>じゅんび</button>
+  <button class="minitile pink" id="cardStart"><span class="ico">💗</span>わたしの こと</button>
+  <button class="minitile blue" id="mapStart"><span class="ico">🗺️</span>にげる ばしょ</button>
+  <button class="minitile yellow" id="contactStart"><span class="ico">📞</span>れんらく</button>
+ </div>
  <button class="bigbtn b-help" id="helpStart"><span class="ico">🆘</span><span>いま こまっている<small>まず みを まもる ほうほう</small></span></button>
  <div class="badgetitle">🏅 あつめた バッジ</div>
  <div class="badges" id="badgeShelf" aria-label="あつめたバッジ"></div>
- <div class="sublinks"><button class="smallbtn" id="mapStart">🗺️ ひなんばしょ（デモ）</button></div>
+ <button class="parentlink" id="parentStart">👪 おうちの人・せんせいへ（せってい・とうろく）</button>
  <div class="note">⚠️ これは学習用の試作品です。実際の災害時は自治体・気象庁・周囲の大人の指示を確認してください。アプリの画面だけで避難判断をしないでください。</div>
 </section>
 
@@ -155,12 +212,16 @@ body.big .bigbtn{font-size:28px}
   <div class="bubble" id="doneMsg"></div>
  </div>
  <button class="primary secondary" id="speakDone">🔊 ポンの こえを きく</button>
+ <div id="doneHelpLinks" class="grid2 hidden">
+  <button class="minitile yellow" data-go="contacts"><span class="ico">📞</span>れんらく</button>
+  <button class="minitile pink" data-go="card"><span class="ico">💗</span>わたしの こと</button>
+ </div>
  <button class="primary" id="doneAgain">もういちど みる</button>
  <button class="primary secondary" data-home>⌂ ホームへ</button>
 </section>
 
 <!-- S08 地図デモ -->
-<section id="map" class="screen" aria-labelledby="mapTitle"><div class="headrow"><button class="smallbtn" data-home>⌂ ホーム</button><h2 id="mapTitle">ひなんばしょ</h2></div><div class="bubble">これは れんしゅうの ちずだよ！<br>ほんとうの みちでは ないよ。</div><div class="scene mapbox" style="aspect-ratio:1.2"><svg viewBox="0 0 440 340" role="img" aria-label="架空の街の地図。スタート地点から学校までの経路を描いた練習用イラスト"><rect width="440" height="340" fill="#e1f1db"/><path d="M0 95H440M0 232H440M140 0V340M300 0V340" stroke="#fff" stroke-width="33"/><path d="M0 95H440M0 232H440M140 0V340M300 0V340" stroke="#bdd2bc" stroke-width="2" stroke-dasharray="9 13"/><rect x="20" y="17" width="90" height="53" rx="9" fill="#f4d6b7"/><path d="M13 21L63 1l53 20" fill="#c98e67"/><rect x="175" y="16" width="92" height="57" rx="9" fill="#f9e49a"/><rect x="344" y="23" width="69" height="44" rx="7" fill="#a9d7f0"/><rect x="26" y="150" width="66" height="56" rx="8" fill="#b9ddab"/><circle cx="65" cy="185" r="18" fill="#5cb979"/><rect x="337" y="131" width="82" height="77" rx="6" fill="#f8e6a5" stroke="#c89f51" stroke-width="4"/><rect x="346" y="116" width="64" height="23" rx="5" fill="#d99c67"/><text x="378" y="167" text-anchor="middle" font-size="16" font-weight="900" fill="#7a5f37">がっこう</text><path d="M90 288H140V232H300V177H338" fill="none" stroke="#fff" stroke-width="17" stroke-linejoin="round" stroke-linecap="round"/><path d="M90 288H140V232H300V177H338" fill="none" stroke="#f39c44" stroke-width="9" stroke-dasharray="15 9" stroke-linejoin="round" stroke-linecap="round"/><circle cx="90" cy="288" r="23" fill="#2787d4" stroke="white" stroke-width="5"/><text x="90" y="295" font-size="20" text-anchor="middle" fill="white">★</text><path d="M338 145q-26-38 0-57q26 19 0 57" fill="#e85754" stroke="white" stroke-width="3"/><circle cx="338" cy="111" r="8" fill="white"/><text x="35" y="323" font-size="17" fill="#225b85" font-weight="900">★ スタート</text><text x="300" y="69" font-size="17" fill="#9d4a31" font-weight="900">🚩 ゴール</text></svg></div><div class="legend">🔵 あおい まる：スタート<br>🚩 あかい しるし：れんしゅうの ひなんばしょ<br>🟠 てんせん：れんしゅうの みち</div><p class="subtext">いく まえに、おとなの人と ばしょや みちを かくにんしよう。</p><button class="primary" id="mapSpeak">🔊 ポンの こえを きく</button><div class="note">【重要】位置情報・本物の避難所データ・経路検索は未実装です。この画面はすべて架空の情報です。実際の避難に使用しないでください。</div></section>
+<section id="map" class="screen" aria-labelledby="mapTitle"><div class="headrow"><button class="smallbtn" data-home>⌂ ホーム</button><h2 id="mapTitle">にげる ばしょ</h2></div><div id="planView"></div><div class="section" style="margin-top:18px">れんしゅうの ちず</div><div class="bubble">これは れんしゅうの ちずだよ！<br>ほんとうの みちでは ないよ。</div><div class="scene mapbox" style="aspect-ratio:1.2"><svg viewBox="0 0 440 340" role="img" aria-label="架空の街の地図。スタート地点から学校までの経路を描いた練習用イラスト"><rect width="440" height="340" fill="#e1f1db"/><path d="M0 95H440M0 232H440M140 0V340M300 0V340" stroke="#fff" stroke-width="33"/><path d="M0 95H440M0 232H440M140 0V340M300 0V340" stroke="#bdd2bc" stroke-width="2" stroke-dasharray="9 13"/><rect x="20" y="17" width="90" height="53" rx="9" fill="#f4d6b7"/><path d="M13 21L63 1l53 20" fill="#c98e67"/><rect x="175" y="16" width="92" height="57" rx="9" fill="#f9e49a"/><rect x="344" y="23" width="69" height="44" rx="7" fill="#a9d7f0"/><rect x="26" y="150" width="66" height="56" rx="8" fill="#b9ddab"/><circle cx="65" cy="185" r="18" fill="#5cb979"/><rect x="337" y="131" width="82" height="77" rx="6" fill="#f8e6a5" stroke="#c89f51" stroke-width="4"/><rect x="346" y="116" width="64" height="23" rx="5" fill="#d99c67"/><text x="378" y="167" text-anchor="middle" font-size="16" font-weight="900" fill="#7a5f37">がっこう</text><path d="M90 288H140V232H300V177H338" fill="none" stroke="#fff" stroke-width="17" stroke-linejoin="round" stroke-linecap="round"/><path d="M90 288H140V232H300V177H338" fill="none" stroke="#f39c44" stroke-width="9" stroke-dasharray="15 9" stroke-linejoin="round" stroke-linecap="round"/><circle cx="90" cy="288" r="23" fill="#2787d4" stroke="white" stroke-width="5"/><text x="90" y="295" font-size="20" text-anchor="middle" fill="white">★</text><path d="M338 145q-26-38 0-57q26 19 0 57" fill="#e85754" stroke="white" stroke-width="3"/><circle cx="338" cy="111" r="8" fill="white"/><text x="35" y="323" font-size="17" fill="#225b85" font-weight="900">★ スタート</text><text x="300" y="69" font-size="17" fill="#9d4a31" font-weight="900">🚩 ゴール</text></svg></div><div class="legend">🔵 あおい まる：スタート<br>🚩 あかい しるし：れんしゅうの ひなんばしょ<br>🟠 てんせん：れんしゅうの みち</div><p class="subtext">いく まえに、おとなの人と ばしょや みちを かくにんしよう。</p><button class="primary" id="mapSpeak">🔊 ポンの こえを きく</button><div class="note">【重要】位置情報・本物の避難所データ・経路検索は未実装です。この画面はすべて架空の情報です。実際の避難に使用しないでください。</div></section>
 
 <!-- S06 クイズ -->
 <section id="quiz" class="screen" aria-labelledby="quizTitle"><div class="headrow"><button class="smallbtn" data-home>⌂ ホーム</button><h2 id="quizTitle">ぼうさいゲーム</h2></div>
@@ -175,6 +236,7 @@ body.big .bigbtn{font-size:28px}
  <div class="setitem"><div class="lbl">🔊 こえ</div><div class="seg" data-set="voice"><button data-v="on">ON</button><button data-v="off">OFF</button></div></div>
  <div class="setitem"><div class="lbl">🐢 こえの はやさ</div><div class="seg" data-set="rate"><button data-v="slow">ゆっくり</button><button data-v="normal">ふつう</button></div></div>
  <div class="setitem"><div class="lbl">🌙 やさしい ひょうじ</div><div class="info" style="text-align:left;margin-bottom:8px">うごきや かざりを へらします</div><div class="seg" data-set="easy"><button data-v="on">ON</button><button data-v="off">OFF</button></div></div>
+ <div class="setitem"><div class="lbl">📝 せつめいの りょう</div><div class="info" style="text-align:left;margin-bottom:8px">みじかい：6〜8さい むけ（1行の しじ だけ）</div><div class="seg" data-set="detail"><button data-v="short">みじかい</button><button data-v="long">くわしい</button></div></div>
  <div class="setitem"><div class="lbl">🔠 もじの おおきさ</div><div class="seg" data-set="big"><button data-v="off">ふつう</button><button data-v="on">おおきい</button></div></div>
  <button class="primary secondary" id="testVoice">🔊 こえを ためす</button>
  <div class="note" id="voiceWarn">このせっていは この たんまつ（スマホ・PC）の中だけに ほぞんされます。なまえ などの こじんじょうほうは あつめません。</div>
@@ -183,7 +245,102 @@ body.big .bigbtn{font-size:28px}
  <button class="smallbtn" id="resetBadges" style="width:100%;margin-top:18px">🗑️ バッジを リセット（保護者・支援者用）</button>
 </section>
 
-</main><footer class="foot">ぼうさいポン！ 試作版 v1.2／学習・操作確認用<br>© ぼうさいポン！ プロトタイプ</footer>
+<!-- マンガ一覧 -->
+<section id="mangaList" class="screen" aria-labelledby="mangaListTitle">
+ <div class="headrow"><button class="smallbtn" data-home>⌂ ホーム</button><h2 id="mangaListTitle">ぼうさいマンガ</h2></div>
+ <div class="cast" id="castRow"></div>
+ <div class="bubble">ポンと なかまたちの おはなしだよ。<br>さいごに クイズが あるよ！</div>
+ <div class="eplist" id="epList"></div>
+</section>
+
+<!-- マンガを読む -->
+<section id="manga" class="screen" aria-labelledby="mangaTitle">
+ <div class="headrow"><button class="smallbtn" id="mangaBack">◀ いちらん</button><h2 id="mangaTitle"></h2></div>
+ <div id="mangaRead">
+  <div id="panelDots" class="progress"></div>
+  <div class="panel"><div class="scene" id="panelScene"></div></div>
+  <div class="speech"><div class="face" id="panelFace"></div><div class="say" id="panelSay" aria-live="polite"></div></div>
+  <button class="primary secondary" id="speakPanel">🔊 よんで もらう</button>
+  <div class="row"><button class="primary secondary" id="prevPanel">◀ まえ</button><button class="primary" id="nextPanel">つぎへ ▶</button></div>
+ </div>
+ <div id="mangaQuiz" class="hidden">
+  <div class="section" style="margin-top:8px">📝 クイズ</div>
+  <div class="steptext" id="mqQuestion"></div>
+  <button class="smallbtn" id="speakMq" style="width:100%">🔊 もんだいを きく</button>
+  <div id="mqChoices"></div>
+  <div class="bubble hidden" id="mqFeedback" role="status"></div>
+  <button class="primary hidden" id="mqDone">おわる ✓</button>
+ </div>
+</section>
+
+<!-- ひなんのじゅんび -->
+<section id="bag" class="screen" aria-labelledby="bagTitle">
+ <div class="headrow"><button class="smallbtn" data-home>⌂ ホーム</button><h2 id="bagTitle">ひなんの じゅんび</h2></div>
+ <div class="bubble">リュックに いれたら おしてね！<br>おうちの人と いっしょに たしかめよう。</div>
+ <div class="progress"><span class="count" id="bagCount"></span></div>
+ <div id="bagItems"></div>
+ <button class="smallbtn" id="bagReset" style="width:100%;margin-top:10px">↩️ チェックを ぜんぶ もどす</button>
+</section>
+
+<!-- わたしのことカード -->
+<section id="card" class="screen" aria-labelledby="cardTitle">
+ <div class="headrow"><button class="smallbtn" data-home>⌂ ホーム</button><h2 id="cardTitle">わたしの こと</h2></div>
+ <div class="info">こまったときは この がめんを おとなに みせてね</div>
+ <div class="mycard" id="myCard"></div>
+ <button class="primary secondary" id="speakCard">🔊 よみあげる</button>
+</section>
+
+<!-- れんらく（こまったとき） -->
+<section id="contacts" class="screen" aria-labelledby="contactsTitle">
+ <div class="headrow"><button class="smallbtn" data-home>⌂ ホーム</button><h2 id="contactsTitle">こまったとき</h2></div>
+ <div class="bubble">まず ちかくの おとなを よぼう！<br>「たすけて」って いって いいんだよ。</div>
+ <div class="section">📞 おうちの人に れんらく</div>
+ <div id="contactList"></div>
+ <div class="section">🚑 きんきゅうの ばんごう</div>
+ <div class="emerg"><div><b>119</b>かじ・けが・きゅうびょう</div><div><b>110</b>じけん・じこ</div></div>
+ <p class="subtext" style="margin-top:10px">でんわは できるだけ おとなと いっしょに かけようね。</p>
+</section>
+
+<!-- 保護者ゲート -->
+<section id="gate" class="screen" aria-labelledby="gateTitle">
+ <div class="headrow"><button class="smallbtn" data-home>⌂ ホーム</button><h2 id="gateTitle">おうちの人・せんせいへ</h2></div>
+ <div class="bubble">ここは おとなの ための がめんだよ。</div>
+ <p class="subtext" style="margin-top:14px">子どもの誤操作を防ぐため、下のボタンを<b>2秒間 長押し</b>してください。</p>
+ <button class="primary holdbtn" id="gateHold"><span class="fill" id="gateFill"></span>🔒 ながおしで ひらく</button>
+</section>
+
+<!-- 保護者画面 -->
+<section id="parent" class="screen" aria-labelledby="parentTitle">
+ <div class="headrow"><button class="smallbtn" data-home>⌂ ホーム</button><h2 id="parentTitle">保護者・支援者メニュー</h2></div>
+ <div class="note" style="margin-top:0">入力した内容は<b>この端末の中だけ</b>に保存され、インターネットには送信されません。共用端末では、フルネームや詳しい医療情報の入力は避けてください。</div>
+ <form class="form" id="parentForm" onsubmit="return false">
+  <div class="setitem"><div class="lbl">💗 わたしの ことカード</div>
+   <label for="fNick">よびな（ニックネーム）</label><input type="text" id="fNick" maxlength="20" placeholder="例：ゆうくん">
+   <label>あてはまるもの</label><div id="fCardItems"></div>
+   <label for="fNote">まわりの人へのおねがい（自由記入）</label><textarea id="fNote" maxlength="200" placeholder="例：パニックのときは、しずかな場所で少し待ってください"></textarea>
+  </div>
+  <div class="setitem"><div class="lbl">📞 れんらくさき（最大4件）</div><div id="fContacts"></div></div>
+  <div class="setitem"><div class="lbl">🏫 ひなんの けいかく</div>
+   <label for="fMeet">家族の集合場所</label><input type="text" id="fMeet" maxlength="40" placeholder="例：〇〇公園の時計の下">
+   <label for="fPlace">避難場所の名前</label><input type="text" id="fPlace" maxlength="40" placeholder="例：〇〇小学校">
+   <label for="fAddr">住所・目印</label><input type="text" id="fAddr" maxlength="80">
+   <label for="fMemo">メモ（対応災害・持ち物・注意など）</label><textarea id="fMemo" maxlength="200" placeholder="例：洪水のときは使えない。津波は△△へ"></textarea>
+   <label for="fChecked">自治体情報で確認した日</label><input type="date" id="fChecked">
+  </div>
+  <button class="primary" id="saveParent">💾 ほぞんする</button>
+  <div class="bubble hidden" id="saveMsg" role="status" style="margin-top:12px">✅ ほぞんしました</div>
+ </form>
+ <div class="setitem"><div class="lbl">⚙️ 表示・音声の設定</div><button class="primary secondary" style="margin-top:0" id="parentSettings">せってい を ひらく</button></div>
+ <div class="setitem"><div class="lbl">🔗 公式の防災情報</div>
+  <p class="subtext" style="text-align:left;font-size:15px">避難所の開設状況・避難情報は、必ず公式情報で確認してください。横浜市では公式アプリ「横浜市避難ナビ」も提供されています。</p>
+  <div class="sublinks"><a class="smallbtn" style="flex:1;text-align:center;text-decoration:none;display:flex;align-items:center;justify-content:center" href="https://www.city.yokohama.lg.jp/" target="_blank" rel="noopener">横浜市ホームページ</a><a class="smallbtn" style="flex:1;text-align:center;text-decoration:none;display:flex;align-items:center;justify-content:center" href="https://www.jma.go.jp/bosai/" target="_blank" rel="noopener">気象庁 防災情報</a></div>
+  <p class="subtext" style="text-align:left;font-size:14px;margin-top:10px">災害時の安否確認には「災害用伝言ダイヤル（171）」も使えます。</p>
+ </div>
+ <div class="note">【未実装・第2段階】現在地からの避難所検索、横浜市の避難所・福祉避難所データ、受入条件の表示、開設状況の取得は未実装です。福祉避難所は事前の受入調整が必要な場合があり、アプリの表示で受入を保証するものではありません。</div>
+ <button class="smallbtn" id="wipeAll" style="width:100%;margin-top:18px">🗑️ このアプリの データを ぜんぶ けす</button>
+</section>
+
+</main><footer class="foot">まもってポン！ 試作版 v1.3／学習・操作確認用<br>© まもってポン！ プロトタイプ</footer>
 </div>
 <script>
 'use strict';
@@ -209,11 +366,29 @@ const quizBank=[
  {q:'みずが きて そとが あぶない。どこへ？',a:['たてものの たかい ところ','みずの なかを あるいて いく'],correct:0,why:'むりに そとへ でないで、たかい ところへ いこう。',scene:'house'}
 ];
 const QUIZ_LEN=5;
-const badgeDefs=[...topics.map(t=>({id:t.id,icon:t.badge,label:t.label})),{id:'quiz',icon:'🎮',label:'ゲーム'},{id:'perfect',icon:'🌟',label:'ぜんもん'}];
+const badgeDefs=[...topics.map(t=>({id:t.id,icon:t.badge,label:t.label})),{id:'quiz',icon:'🎮',label:'ゲーム'},{id:'perfect',icon:'🌟',label:'ぜんもん'},{id:'manga',icon:'📖',label:'マンガ'},{id:'bag',icon:'🎒',label:'じゅんび'}];
+
+/* キャラクター（ポンと なかま） */
+const cast={pon:{name:'ポン',sub:'いぬ'},niko:{name:'にこちゃん',sub:'うさぎ'},mamoru:{name:'まもるくん',sub:'くま'},pippi:{name:'ピッピ',sub:'ことり'}};
+// マンガ：[だれ, せりふ, イラスト]  ※教材用の文言案（要監修）
+const episodes=[
+ {id:'ep1',title:'じしんが きた！',panels:[['niko','あれ？ ゆらゆら してるよ！','wait'],['mamoru','じしんだ！ つくえの したで あたまを まもろう！','desk'],['pippi','ゆれが おさまるまで、そとに とびださないでね。','wait'],['pon','ゆれが とまったら、おとなと あんぜんを かくにんだよ。','adult']],
+  quiz:{q:'ゆれている あいだは どうする？',a:['あたまを まもる','そとへ はしる','まどの そばに いく'],correct:0,why:'ものが おちてこない ところで あたまを まもろう。'}},
+ {id:'ep2',title:'あめが いっぱい！',panels:[['niko','あめが すごいね。かわを みに いこうかな？','rain'],['mamoru','だめだよ！ かわや みずの たまった みちは あぶないよ。','rain'],['pippi','おとなと テレビや ラジオで じょうほうを きこう。','adult'],['pon','そとが あぶない ときは、たてものの たかい ところへ。','house']],
+  quiz:{q:'あめが つよい とき、かわには？',a:['みに いく','ちかづかない','あそびに いく'],correct:1,why:'かわや みずの たまった みちには ちかづかないよ。'}},
+ {id:'ep3',title:'ひなんじょに いこう！',panels:[['niko','おうちの ひとが「ひなんしよう」って いってる。','adult'],['mamoru','おとなと いっしょに いこう。ひとりで いかないよ。','adult'],['pippi','みちでは ブロックべいや きれた でんせんに ちかづかないでね。','outside'],['pon','ひなんばしょに ついたよ。おとなの いうことを きこうね。','school']],
+  quiz:{q:'ひなんする ときは だれと いく？',a:['ひとりで','ともだち だけ','おとなと いっしょ'],correct:2,why:'ひなんは おとなと いっしょに いこうね。'}},
+ {id:'ep4',title:'ひなんじょでの すごしかた',panels:[['niko','ひとが いっぱいで ざわざわ する…','school'],['mamoru','おとが にがてな ときは、イヤーマフや しずかな ばしょを おとなに たのもう。','adult'],['pippi','こまったら「たすけて」「てつだって」って いって いいんだよ。','adult'],['pon','「わたしの こと」の がめんを おとなに みせるのも いいね。','school']],
+  quiz:{q:'ひなんじょで こまったら？',a:['おとなに つたえる','がまんして だまる','そとへ でていく'],correct:0,why:'こまった ことは おとなに つたえて いいんだよ。'}},
+ {id:'ep5',title:'じゅんびは できたかな？',panels:[['niko','もしもの ときの リュック、なにを いれる？','bag'],['mamoru','おみず、たべもの、おくすり！','bag'],['pippi','あんしん できる おもちゃや イヤーマフも だいじだよ。','bag'],['pon','「じゅんび」の がめんで いっしょに たしかめよう！','bag']],
+  quiz:{q:'リュックに いれる ものは？',a:['なにも いれない','おみず','ゲームき だけ'],correct:1,why:'おみずや たべもの、おくすりを いれよう。'}}
+];
+const bagDefs=[['water','💧','おみず'],['food','🍙','たべもの'],['medicine','💊','おくすり'],['light','🔦','かいちゅうでんとう'],['towel','🧻','タオル・きがえ'],['mask','😷','マスク'],['earmuff','🎧','イヤーマフ'],['toy','🧸','おきにいりの もの'],['battery','🔋','じゅうでんき'],['card','📇','わたしの ことの かみ']];
+const cardDefs=[['noise','🔇','おおきな おとが にがて'],['quiet','🤫','しずかな ばしょが すき'],['slow','🐢','ゆっくり はなしてね'],['picture','🖼️','えや ジェスチャーで つたえてね'],['wheel','♿','くるまいすを つかう'],['med','💊','おくすりが ひつよう'],['care','🩺','いりょうてきケアが ひつよう'],['hand','🤝','てを つないで ほしい'],['touch','🙅','さわられるのが にがて'],['allergy','🍽️','たべものアレルギーが ある']];
 
 /* ===== 状態・保存 ===== */
 const STORE='bousaipon.v1';
-const defaults={voice:'on',rate:'slow',easy:'off',big:'off',badges:[]};
+const defaults={voice:'on',rate:'slow',easy:'off',big:'off',detail:'long',badges:[],manga:[],bag:[],card:{nick:'',items:[],note:''},contacts:[],plan:{}};
 let state=load();
 function load(){try{return Object.assign({},defaults,JSON.parse(localStorage.getItem(STORE)||'{}'))}catch(e){return Object.assign({},defaults)}}
 function save(){try{localStorage.setItem(STORE,JSON.stringify(state))}catch(e){}}
@@ -229,14 +404,80 @@ function show(name){stopVoice();document.querySelectorAll('.screen').forEach(s=>
 function stopVoice(){if('speechSynthesis' in window)window.speechSynthesis.cancel();}
 function say(str){if(state.voice!=='on'||!('speechSynthesis' in window))return;stopVoice();const u=new SpeechSynthesisUtterance(str.replace(/[！。、]/g,'。'));u.lang='ja-JP';u.rate=state.rate==='slow'?.8:1;u.pitch=1.15;window.speechSynthesis.speak(u);}
 function renderModebars(){document.querySelectorAll('[data-modebar]').forEach(b=>{b.className='modebar '+(mode==='help'?'help':'practice');b.textContent=mode==='help'?'🆘 いま こまっている':'📘 れんしゅう ちゅう';});}
-function applySettings(){document.body.classList.toggle('easy',state.easy==='on');document.body.classList.toggle('big',state.big==='on');document.querySelectorAll('[data-set]').forEach(g=>g.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(state[g.dataset.set]===b.dataset.v))));}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function applySettings(){document.body.classList.toggle('short',state.detail==='short');document.body.classList.toggle('easy',state.easy==='on');document.body.classList.toggle('big',state.big==='on');document.querySelectorAll('[data-set]').forEach(g=>g.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(state[g.dataset.set]===b.dataset.v))));}
 function hasBadge(id){return state.badges.includes(id)}
 function giveBadge(id){if(mode==='help'||hasBadge(id))return false;state.badges.push(id);save();return true}
 function renderBadges(){el('badgeShelf').innerHTML=badgeDefs.map(b=>`<div class="badge ${hasBadge(b.id)?'':'off'}"><span class="b" aria-hidden="true">${b.icon}</span>${b.label}<span class="sr-only">${hasBadge(b.id)?'もっている':'まだ'}</span></div>`).join('');}
 
 /* ===== イラスト ===== */
 function iconScene(k){const base=(content,bg='#e8f5ff')=>`<svg viewBox="0 0 420 300" role="img" aria-label="ぼうさいのイラスト" xmlns="http://www.w3.org/2000/svg"><rect width="420" height="300" rx="22" fill="${bg}"/>${content}</svg>`;const dog=`<ellipse cx="210" cy="258" rx="73" ry="11" fill="#adc9cd" opacity=".5"/><path d="M172 202v44h79v-44" fill="#d79b65"/><circle cx="212" cy="169" r="56" fill="#e3ae73"/><path d="M173 126q-46-46-40 26l36 20M250 125q42-47 37 25l-28 22" fill="#ac7548"/><ellipse cx="210" cy="189" rx="34" ry="23" fill="#fff0de"/><circle cx="191" cy="169" r="5" fill="#413d3e"/><circle cx="233" cy="169" r="5" fill="#413d3e"/><ellipse cx="211" cy="185" rx="8" ry="6" fill="#463f43"/><path d="M211 191q-7 13-17 0m17 0q7 13 17 0" fill="none" stroke="#554641" stroke-width="3"/>`;
-switch(k){case'desk':return base(`<rect x="68" y="99" width="282" height="26" rx="8" fill="#ab7f5c"/><path d="M91 123v152m235-152v152" stroke="#a17b58" stroke-width="19"/>${dog}<path d="M162 126q45-54 92 1" fill="#ffd765" stroke="#dfa93a" stroke-width="8"/><text x="208" y="45" font-size="25" font-weight="900" text-anchor="middle" fill="#43738d">あたまを まもろう</text>`,'#fff4df');case'wait':return base(`<rect x="65" y="208" width="300" height="23" rx="8" fill="#89be9c"/>${dog}<text x="210" y="55" text-anchor="middle" fill="#43738d" font-size="25" font-weight="900">ゆれが おさまるまで</text><path d="M110 99q-17 17 0 34m-25-34q-17 17 0 34" stroke="#e9b370" stroke-width="7" fill="none"/>`);case'adult':return base(`<circle cx="110" cy="145" r="30" fill="#ecc09b"/><path d="M74 276v-85q35-34 71 0v85" fill="#68b2bb"/>${dog}<path d="M147 205l23 13" stroke="#ecc09b" stroke-width="13" stroke-linecap="round"/><text x="210" y="55" text-anchor="middle" fill="#43738d" font-size="24" font-weight="900">おとなと いっしょ</text>`);case'school':return base(`<path d="M90 118h240v150H90Z" fill="#ffe3a0" stroke="#c5a067" stroke-width="5"/><path d="M72 118l138-73 137 73" fill="#d58d74"/><rect x="182" y="190" width="56" height="78" fill="#94c4d7"/><rect x="110" y="144" width="44" height="37" fill="#a4d9ee"/><rect x="267" y="144" width="44" height="37" fill="#a4d9ee"/><text x="210" y="150" text-anchor="middle" fill="#805a3c" font-size="21" font-weight="900">ひなんばしょ</text>`,'#e9f8e9');case'rain':return base(`<path d="M0 235q89-20 160 0t260 0v65H0" fill="#74bfd9"/><g fill="#8db7c8"><ellipse cx="132" cy="94" rx="68" ry="30"/><ellipse cx="202" cy="94" rx="67" ry="33"/><ellipse cx="272" cy="94" rx="65" ry="30"/></g><g stroke="#4f9cd3" stroke-width="7" stroke-linecap="round"><path d="M113 140l-15 33m67-35l-15 33m67-33l-15 33m67-33l-15 33m67-33l-15 33"/></g><path d="M42 235q80-56 143 0" stroke="#e1f5ff" stroke-width="10" fill="none"/>`,'#dcefff');case'house':return base(`<path d="M95 126L210 42l115 84v151H95Z" fill="#fce2b2" stroke="#bb9b70" stroke-width="5"/><path d="M76 129L210 28l134 101" fill="none" stroke="#cc9473" stroke-width="22" stroke-linejoin="round"/><rect x="172" y="185" width="76" height="92" fill="#a3d4e1"/><rect x="115" y="145" width="45" height="41" fill="#fff6d4"/><rect x="263" y="145" width="45" height="41" fill="#fff6d4"/><path d="M0 277q170-50 420 0v23H0Z" fill="#8dcce4"/>`);case'wave':return base(`<path d="M0 180q70-60 140 0t140 0t140 0v120H0Z" fill="#58b1d7"/><path d="M0 206q70-60 140 0t140 0t140 0" stroke="#d1f2fa" fill="none" stroke-width="17"/><path d="M0 259q70-60 140 0t140 0t140 0" stroke="#c1eafa" fill="none" stroke-width="15"/><text x="210" y="70" text-anchor="middle" fill="#317d9b" font-size="30" font-weight="900">つなみに ちゅうい</text>`);case'hill':return base(`<path d="M0 270L157 85l144 185Z" fill="#76be91"/><path d="M140 270L285 127l135 143Z" fill="#a5d7a1"/><path d="M160 150l29-32 29 32" stroke="#fff" stroke-width="9" fill="none"/><path d="M189 120v99" stroke="#fff" stroke-width="9"/><text x="210" y="48" font-size="27" fill="#397d71" text-anchor="middle" font-weight="900">たかい ところへ</text>`);case'fire':return base(`<path d="M205 271Q103 216 168 138q15 40 33 33q36-40 8-111q136 117 68 211Z" fill="#ff8b38"/><path d="M211 271q-64-44-19-96q12 27 26 10q56 64 23 86" fill="#ffdb68"/><text x="210" y="44" font-size="29" fill="#bc6838" text-anchor="middle" font-weight="900">かじだ！</text>`,'#fff1df');case'smoke':return base(`<rect x="70" y="118" width="270" height="165" rx="15" fill="#efd3ad"/><path d="M91 111q-32-39 3-68t55 0q36-36 68 7t60-7q64 30 27 71" fill="#9bafb5" opacity=".8"/><path d="M90 270h230" stroke="#946d54" stroke-width="7"/>${dog}<text x="210" y="38" text-anchor="middle" fill="#50778c" font-size="23" font-weight="900">けむりに きをつけて</text>`,'#f1f5f6');case'outside':return base(`<rect x="45" y="98" width="135" height="174" rx="10" fill="#e6b790"/><path d="M29 101L112 47l85 54" fill="#cf9172"/><path d="M80 163h50v109H80" fill="#9f6f57"/>${dog}<path d="M185 240h100" stroke="#82ba92" stroke-width="12"/><text x="218" y="39" fill="#3a8091" text-anchor="middle" font-size="25" font-weight="900">もどらないよ</text>`);default:return base(dog);}}
+switch(k){case'desk':return base(`<rect x="68" y="99" width="282" height="26" rx="8" fill="#ab7f5c"/><path d="M91 123v152m235-152v152" stroke="#a17b58" stroke-width="19"/>${dog}<path d="M162 126q45-54 92 1" fill="#ffd765" stroke="#dfa93a" stroke-width="8"/><text x="208" y="45" font-size="25" font-weight="900" text-anchor="middle" fill="#43738d">あたまを まもろう</text>`,'#fff4df');case'wait':return base(`<rect x="65" y="208" width="300" height="23" rx="8" fill="#89be9c"/>${dog}<text x="210" y="55" text-anchor="middle" fill="#43738d" font-size="25" font-weight="900">ゆれが おさまるまで</text><path d="M110 99q-17 17 0 34m-25-34q-17 17 0 34" stroke="#e9b370" stroke-width="7" fill="none"/>`);case'adult':return base(`<circle cx="110" cy="145" r="30" fill="#ecc09b"/><path d="M74 276v-85q35-34 71 0v85" fill="#68b2bb"/>${dog}<path d="M147 205l23 13" stroke="#ecc09b" stroke-width="13" stroke-linecap="round"/><text x="210" y="55" text-anchor="middle" fill="#43738d" font-size="24" font-weight="900">おとなと いっしょ</text>`);case'school':return base(`<path d="M90 118h240v150H90Z" fill="#ffe3a0" stroke="#c5a067" stroke-width="5"/><path d="M72 118l138-73 137 73" fill="#d58d74"/><rect x="182" y="190" width="56" height="78" fill="#94c4d7"/><rect x="110" y="144" width="44" height="37" fill="#a4d9ee"/><rect x="267" y="144" width="44" height="37" fill="#a4d9ee"/><text x="210" y="150" text-anchor="middle" fill="#805a3c" font-size="21" font-weight="900">ひなんばしょ</text>`,'#e9f8e9');case'rain':return base(`<path d="M0 235q89-20 160 0t260 0v65H0" fill="#74bfd9"/><g fill="#8db7c8"><ellipse cx="132" cy="94" rx="68" ry="30"/><ellipse cx="202" cy="94" rx="67" ry="33"/><ellipse cx="272" cy="94" rx="65" ry="30"/></g><g stroke="#4f9cd3" stroke-width="7" stroke-linecap="round"><path d="M113 140l-15 33m67-35l-15 33m67-33l-15 33m67-33l-15 33m67-33l-15 33"/></g><path d="M42 235q80-56 143 0" stroke="#e1f5ff" stroke-width="10" fill="none"/>`,'#dcefff');case'house':return base(`<path d="M95 126L210 42l115 84v151H95Z" fill="#fce2b2" stroke="#bb9b70" stroke-width="5"/><path d="M76 129L210 28l134 101" fill="none" stroke="#cc9473" stroke-width="22" stroke-linejoin="round"/><rect x="172" y="185" width="76" height="92" fill="#a3d4e1"/><rect x="115" y="145" width="45" height="41" fill="#fff6d4"/><rect x="263" y="145" width="45" height="41" fill="#fff6d4"/><path d="M0 277q170-50 420 0v23H0Z" fill="#8dcce4"/>`);case'wave':return base(`<path d="M0 180q70-60 140 0t140 0t140 0v120H0Z" fill="#58b1d7"/><path d="M0 206q70-60 140 0t140 0t140 0" stroke="#d1f2fa" fill="none" stroke-width="17"/><path d="M0 259q70-60 140 0t140 0t140 0" stroke="#c1eafa" fill="none" stroke-width="15"/><text x="210" y="70" text-anchor="middle" fill="#317d9b" font-size="30" font-weight="900">つなみに ちゅうい</text>`);case'hill':return base(`<path d="M0 270L157 85l144 185Z" fill="#76be91"/><path d="M140 270L285 127l135 143Z" fill="#a5d7a1"/><path d="M160 150l29-32 29 32" stroke="#fff" stroke-width="9" fill="none"/><path d="M189 120v99" stroke="#fff" stroke-width="9"/><text x="210" y="48" font-size="27" fill="#397d71" text-anchor="middle" font-weight="900">たかい ところへ</text>`);case'fire':return base(`<path d="M205 271Q103 216 168 138q15 40 33 33q36-40 8-111q136 117 68 211Z" fill="#ff8b38"/><path d="M211 271q-64-44-19-96q12 27 26 10q56 64 23 86" fill="#ffdb68"/><text x="210" y="44" font-size="29" fill="#bc6838" text-anchor="middle" font-weight="900">かじだ！</text>`,'#fff1df');case'smoke':return base(`<rect x="70" y="118" width="270" height="165" rx="15" fill="#efd3ad"/><path d="M91 111q-32-39 3-68t55 0q36-36 68 7t60-7q64 30 27 71" fill="#9bafb5" opacity=".8"/><path d="M90 270h230" stroke="#946d54" stroke-width="7"/>${dog}<text x="210" y="38" text-anchor="middle" fill="#50778c" font-size="23" font-weight="900">けむりに きをつけて</text>`,'#f1f5f6');case'bag':return base(`<rect x="140" y="92" width="140" height="170" rx="40" fill="#ffcf58" stroke="#c99027" stroke-width="7"/><path d="M175 96q35-50 70 0" fill="none" stroke="#c99027" stroke-width="9"/><rect x="165" y="160" width="90" height="62" rx="14" fill="#ffe7a0" stroke="#c99027" stroke-width="5"/><text x="80" y="150" font-size="42">💧</text><text x="300" y="150" font-size="42">🍙</text><text x="70" y="245" font-size="42">🔦</text><text x="305" y="245" font-size="42">🧸</text><text x="210" y="50" text-anchor="middle" fill="#8a6420" font-size="26" font-weight="900">じゅんび OK？</text>`,'#fff8e6');case'outside':return base(`<rect x="45" y="98" width="135" height="174" rx="10" fill="#e6b790"/><path d="M29 101L112 47l85 54" fill="#cf9172"/><path d="M80 163h50v109H80" fill="#9f6f57"/>${dog}<path d="M185 240h100" stroke="#82ba92" stroke-width="12"/><text x="218" y="39" fill="#3a8091" text-anchor="middle" font-size="25" font-weight="900">もどらないよ</text>`);default:return base(dog);}}
+
+/* ===== キャラクターの かお ===== */
+function face(k){const w=(inner,bg)=>`<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="38" fill="${bg}"/>${inner}</svg>`;
+ const eyes=`<circle cx="30" cy="42" r="3.5" fill="#3b3638"/><circle cx="50" cy="42" r="3.5" fill="#3b3638"/><circle cx="24" cy="50" r="4" fill="#f3a89a" opacity=".7"/><circle cx="56" cy="50" r="4" fill="#f3a89a" opacity=".7"/>`;
+ switch(k){
+  case'pon':return w(`<path d="M16 26q-8-14 2-6l8 12zM64 26q8-14-2-6l-8 12z" fill="#bb7d4b"/><circle cx="40" cy="44" r="22" fill="#e9b57b"/><ellipse cx="40" cy="53" rx="13" ry="9" fill="#fff1df"/>${eyes}<ellipse cx="40" cy="50" rx="4" ry="3" fill="#4b4343"/>`,'#fff1d6');
+  case'niko':return w(`<ellipse cx="30" cy="16" rx="6" ry="16" fill="#fff" stroke="#f0b6c4" stroke-width="2"/><ellipse cx="50" cy="16" rx="6" ry="16" fill="#fff" stroke="#f0b6c4" stroke-width="2"/><ellipse cx="30" cy="17" rx="2.5" ry="10" fill="#f6c3cf"/><ellipse cx="50" cy="17" rx="2.5" ry="10" fill="#f6c3cf"/><circle cx="40" cy="46" r="22" fill="#fff" stroke="#f0b6c4" stroke-width="2"/>${eyes}<path d="M37 50q3 3 6 0" stroke="#d9768c" stroke-width="2" fill="none"/>`,'#ffe3ea');
+  case'mamoru':return w(`<circle cx="22" cy="26" r="8" fill="#a8744b"/><circle cx="58" cy="26" r="8" fill="#a8744b"/><circle cx="40" cy="45" r="23" fill="#a8744b"/><ellipse cx="40" cy="53" rx="11" ry="8" fill="#e8cba9"/>${eyes}<ellipse cx="40" cy="50" rx="4" ry="3" fill="#3b3638"/><path d="M24 26q16-16 32 0" fill="#ffd765" stroke="#dfa93a" stroke-width="3"/>`,'#e3f1ff');
+  case'pippi':return w(`<circle cx="40" cy="44" r="22" fill="#ffd84d"/><path d="M38 20q2-10 8-6q-4 2-4 8z" fill="#ffb03b"/>${eyes}<path d="M36 50l4 5 4-5z" fill="#ff9b3b"/>`,'#e4f7e8');}
+}
+function castLabel(k){return `${face(k)}<div>${cast[k].name}</div>`}
+
+/* ===== マンガ ===== */
+let ep=null,panelIndex=0,mqAnswered=false;
+function openMangaList(){mode='practice';el('castRow').innerHTML=Object.keys(cast).map(k=>`<div class="face">${castLabel(k)}<div style="font-size:11px;opacity:.7">${cast[k].sub}</div></div>`).join('');
+ el('epList').innerHTML=episodes.map((e,i)=>`<button data-ep="${i}"><span class="num">だい${i+1}わ</span><span>${e.title}</span><span class="ok" aria-label="${state.manga.includes(e.id)?'よんだ':''}">${state.manga.includes(e.id)?'✅':''}</span></button>`).join('');
+ el('epList').querySelectorAll('[data-ep]').forEach(b=>b.addEventListener('click',tap(()=>openEpisode(+b.dataset.ep))));show('mangaList');}
+function openEpisode(i){ep=episodes[i];panelIndex=0;el('mangaTitle').textContent=`だい${i+1}わ ${ep.title}`;el('mangaRead').classList.remove('hidden');el('mangaQuiz').classList.add('hidden');renderPanel();show('manga');}
+function renderPanel(){const p=ep.panels[panelIndex];el('panelScene').innerHTML=iconScene(p[2]);el('panelFace').innerHTML=castLabel(p[0]);el('panelSay').textContent=p[1];
+ el('panelDots').innerHTML=ep.panels.map((_,i)=>`<span class="dot ${i===panelIndex?'on':''}" aria-hidden="true"></span>`).join('')+`<span class="count">${panelIndex+1} / ${ep.panels.length}</span>`;
+ el('prevPanel').disabled=panelIndex===0;el('nextPanel').textContent=panelIndex===ep.panels.length-1?'クイズへ ▶':'つぎへ ▶';}
+function openMangaQuiz(){stopVoice();mqAnswered=false;const q=ep.quiz;el('mangaRead').classList.add('hidden');el('mangaQuiz').classList.remove('hidden');el('mqQuestion').textContent=q.q;el('mqFeedback').classList.add('hidden');el('mqDone').classList.add('hidden');el('mqChoices').innerHTML='';
+ q.a.forEach((c,i)=>{const b=document.createElement('button');b.className='choice';b.textContent=`${['🅰','🅱','🅲'][i]} ${c}`;b.addEventListener('click',tap(()=>mangaAnswer(i,b)));el('mqChoices').appendChild(b)});window.scrollTo({top:0,behavior:'instant'});}
+function mangaAnswer(i,b){if(mqAnswered)return;const q=ep.quiz;
+ if(i===q.correct){mqAnswered=true;[...el('mqChoices').children].forEach(x=>x.disabled=true);b.classList.add('correct');
+  if(!state.manga.includes(ep.id)){state.manga.push(ep.id);save()}
+  const all=episodes.every(e=>state.manga.includes(e.id))&&giveBadge('manga');
+  el('mqFeedback').textContent=`🎉 せいかい！ ${q.why}${all?' 📖 マンガの バッジ ゲット！':''}`;el('mqDone').classList.remove('hidden');}
+ else{b.disabled=true;b.classList.add('wrong');el('mqFeedback').textContent='🌱 もう いちど いっしょに かんがえよう！';}
+ el('mqFeedback').classList.remove('hidden');say(el('mqFeedback').textContent);}
+
+/* ===== ひなんの じゅんび ===== */
+function renderBag(){const n=state.bag.length;el('bagCount').textContent=`${n} / ${bagDefs.length} できた`;
+ el('bagItems').innerHTML=bagDefs.map(([id,em,label])=>`<button class="check" data-bag="${id}" aria-pressed="${state.bag.includes(id)}"><span class="em" aria-hidden="true">${em}</span>${label}<span class="box" aria-hidden="true">${state.bag.includes(id)?'✓':''}</span></button>`).join('');
+ el('bagItems').querySelectorAll('[data-bag]').forEach(b=>b.addEventListener('click',()=>{const id=b.dataset.bag;state.bag=state.bag.includes(id)?state.bag.filter(x=>x!==id):[...state.bag,id];
+  let msg='';if(state.bag.length===bagDefs.length){msg=giveBadge('bag')?'ぜんぶ できたね！ じゅんびの バッジ ゲット！':'ぜんぶ できたね！'}save();renderBag();if(msg)say(msg)}));}
+
+/* ===== わたしの こと ===== */
+function renderCard(){const c=state.card,items=cardDefs.filter(d=>c.items.includes(d[0]));
+ if(!c.nick&&!items.length&&!c.note){el('myCard').innerHTML='<h3>💗 わたしの こと</h3><p class="subtext">まだ とうろく されていないよ。<br>おうちの人に「おうちの人・せんせいへ」から とうろく して もらってね。</p>';return}
+ el('myCard').innerHTML=`<h3>💗 わたしの こと</h3>${c.nick?`<div class="nick">${esc(c.nick)}</div>`:''}${items.map(d=>`<div class="cardrow"><span class="em" aria-hidden="true">${d[1]}</span>${d[2]}</div>`).join('')}${c.note?`<div class="cardrow" style="font-size:17px">📝 ${esc(c.note)}</div>`:''}`;}
+function cardSpeech(){const c=state.card,items=cardDefs.filter(d=>c.items.includes(d[0])).map(d=>d[2]);return (c.nick?c.nick+'です。':'')+items.join('。')+(c.note?'。'+c.note:'')||'まだ とうろく されていないよ。'}
+
+/* ===== れんらく ===== */
+function telHref(t){return 'tel:'+String(t).replace(/[^0-9+]/g,'')}
+function renderContacts(){const list=state.contacts.filter(c=>c.name||c.tel);
+ el('contactList').innerHTML=list.length?list.map(c=>`<div class="contact"><span class="nm">${esc(c.name||'れんらくさき')}</span>${c.tel?`<a class="callbtn" href="${esc(telHref(c.tel))}">📞 でんわ</a>`:''}</div>`).join(''):'<p class="subtext">まだ とうろく されていないよ。<br>おうちの人に とうろく して もらってね。</p>';}
+
+/* ===== にげる ばしょ（おうちの人と きめた ばしょ） ===== */
+function renderPlan(){const p=state.plan||{};
+ el('planView').innerHTML=(p.meet||p.place)?`<div class="planbox"><div style="font-size:18px">🏫 おうちの人と きめた ばしょ</div>${p.meet?`<div class="k">しゅうごう ばしょ</div><div class="v">${esc(p.meet)}</div>`:''}${p.place?`<div class="k">ひなん ばしょ</div><div class="v">${esc(p.place)}</div>`:''}${p.addr?`<div class="k">じゅうしょ・めじるし</div><div>${esc(p.addr)}</div>`:''}${p.memo?`<div class="k">メモ</div><div>${esc(p.memo)}</div>`:''}${p.checked?`<div class="k">かくにんした ひ：${esc(p.checked)}</div>`:''}</div><p class="subtext" style="margin-top:8px;font-size:14px">※実際に避難するときは、そのときの公式情報と大人の判断を優先してください。</p>`:'<div class="bubble">まだ ばしょが とうろく されていないよ。<br>おうちの人と いっしょに きめてね。</div>';}
+
+/* ===== 保護者 ===== */
+function openGate(){el('gateFill').style.width='0';show('gate')}
+let holdTimer=null,holdStart=0;
+function holdBegin(e){if(e)e.preventDefault();if(holdTimer)return;holdStart=Date.now();holdTimer=setInterval(()=>{const r=Math.min(1,(Date.now()-holdStart)/2000);el('gateFill').style.width=(r*100)+'%';if(r>=1){holdEnd();openParent()}},50)}
+function holdEnd(){clearInterval(holdTimer);holdTimer=null;el('gateFill').style.width='0'}
+function openParent(){const c=state.card,p=state.plan||{};el('fNick').value=c.nick||'';el('fNote').value=c.note||'';
+ el('fCardItems').innerHTML=cardDefs.map(([id,em,label])=>`<label class="cbrow"><input type="checkbox" value="${id}" ${c.items.includes(id)?'checked':''}>${em} ${label}</label>`).join('');
+ el('fContacts').innerHTML=[0,1,2,3].map(i=>{const x=state.contacts[i]||{};return `<label for="fcN${i}">${i+1}. なまえ・続柄</label><input type="text" id="fcN${i}" maxlength="20" placeholder="例：おかあさん" value="${esc(x.name||'')}"><label for="fcT${i}">電話番号</label><input type="tel" id="fcT${i}" maxlength="20" inputmode="tel" value="${esc(x.tel||'')}">`}).join('<hr style="border:0;border-top:1px dashed #d5e6ed;margin:12px 0">');
+ el('fMeet').value=p.meet||'';el('fPlace').value=p.place||'';el('fAddr').value=p.addr||'';el('fMemo').value=p.memo||'';el('fChecked').value=p.checked||'';el('saveMsg').classList.add('hidden');show('parent');}
+function saveParent(){state.card={nick:el('fNick').value.trim(),note:el('fNote').value.trim(),items:[...el('fCardItems').querySelectorAll('input:checked')].map(x=>x.value)};
+ state.contacts=[0,1,2,3].map(i=>({name:el('fcN'+i).value.trim(),tel:el('fcT'+i).value.trim()})).filter(c=>c.name||c.tel);
+ state.plan={meet:el('fMeet').value.trim(),place:el('fPlace').value.trim(),addr:el('fAddr').value.trim(),memo:el('fMemo').value.trim(),checked:el('fChecked').value};
+ save();el('saveMsg').classList.remove('hidden');}
 
 /* ===== S03 災害選択 ===== */
 function openSelect(m){mode=m;el('selectBubble').innerHTML=m==='help'?'だいじょうぶ。ポンが いっしょだよ。<br>なにが おきたか おしてね。':'どの れんしゅうを する？<br>おわると バッジが もらえるよ！';
@@ -256,6 +497,7 @@ function renderStep(){const t=topics.find(t=>t.id===currentTopic),arr=steps[curr
 function finishTopic(){const t=topics.find(t=>t.id===currentTopic);let msg;
  if(mode==='help'){el('doneBadge').textContent='🤝';el('doneTitle').textContent='おとなと いっしょに かくにん';msg='ちかくの おとなに こえを かけよう。おとなと いっしょに、つぎに どうするか きめようね。';el('doneScene').innerHTML=iconScene('adult');}
  else{const isNew=giveBadge(currentTopic);el('doneBadge').innerHTML=`<span class="burst pop">${t.badge}</span>`;el('doneTitle').textContent=isNew?`${t.label}の バッジ ゲット！`:'できたね！';msg=`${t.label}の れんしゅう、よく できたね！ おうちの ひとにも おしえてあげよう。`;el('doneScene').innerHTML=iconScene('school');}
+ el('doneHelpLinks').classList.toggle('hidden',mode!=='help');
  el('doneMsg').textContent=msg;show('done');}
 
 /* ===== S06 クイズ ===== */
@@ -279,13 +521,38 @@ el('practiceStart').addEventListener('click',tap(()=>openSelect('practice')));
 el('helpStart').addEventListener('click',tap(()=>openSelect('help')));
 el('quizStart').addEventListener('click',tap(startQuiz));
 el('retryQuiz').addEventListener('click',tap(startQuiz));
-el('mapStart').addEventListener('click',tap(()=>{mode='practice';show('map')}));
+el('mapStart').addEventListener('click',tap(()=>{mode='practice';renderPlan();show('map')}));
 el('settingsBtn').addEventListener('click',tap(()=>show('settings')));
 document.querySelectorAll('[data-home]').forEach(b=>b.addEventListener('click',tap(()=>{renderBadges();show('home')})));
 el('guideBack').addEventListener('click',tap(()=>openSelect(mode)));
 el('nextStep').addEventListener('click',tap(()=>{if(stepIndex===steps[currentTopic].length-1)finishTopic();else{stepIndex++;renderStep()}}));
 el('prevStep').addEventListener('click',tap(()=>{if(stepIndex>0){stepIndex--;renderStep()}}));
-el('speakStep').addEventListener('click',()=>say(steps[currentTopic][stepIndex][0]+'。'+steps[currentTopic][stepIndex][1]));
+el('speakStep').addEventListener('click',()=>{const s=steps[currentTopic][stepIndex];say(state.detail==='short'?s[0]:s[0]+'。'+s[1])});
+// マンガ
+el('mangaStart').addEventListener('click',tap(openMangaList));
+el('mangaBack').addEventListener('click',tap(openMangaList));
+el('nextPanel').addEventListener('click',tap(()=>{if(panelIndex===ep.panels.length-1)openMangaQuiz();else{panelIndex++;renderPanel()}}));
+el('prevPanel').addEventListener('click',tap(()=>{if(panelIndex>0){panelIndex--;renderPanel()}}));
+el('speakPanel').addEventListener('click',()=>{const p=ep.panels[panelIndex];say(cast[p[0]].name+'。'+p[1])});
+el('speakMq').addEventListener('click',()=>{const q=ep.quiz;say(q.q+'。'+q.a.map((c,i)=>['エー','ビー','シー'][i]+'。'+c).join('。'))});
+el('mqDone').addEventListener('click',tap(openMangaList));
+// じゅんび・カード・れんらく
+el('bagStart').addEventListener('click',tap(()=>{renderBag();show('bag')}));
+el('bagReset').addEventListener('click',()=>{state.bag=[];save();renderBag()});
+el('cardStart').addEventListener('click',tap(()=>{renderCard();show('card')}));
+el('speakCard').addEventListener('click',()=>say(cardSpeech()));
+el('contactStart').addEventListener('click',tap(()=>{renderContacts();show('contacts')}));
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',tap(()=>{const g=b.dataset.go;if(g==='contacts'){renderContacts();show('contacts')}else{renderCard();show('card')}})));
+// 保護者
+el('parentStart').addEventListener('click',tap(openGate));
+el('gateHold').addEventListener('pointerdown',holdBegin);
+['pointerup','pointerleave','pointercancel'].forEach(t=>el('gateHold').addEventListener(t,holdEnd));
+el('gateHold').addEventListener('contextmenu',e=>e.preventDefault());
+el('gateHold').addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&!e.repeat)holdBegin(e)});
+el('gateHold').addEventListener('keyup',holdEnd);
+el('saveParent').addEventListener('click',saveParent);
+el('parentSettings').addEventListener('click',tap(()=>show('settings')));
+el('wipeAll').addEventListener('click',()=>{if(confirm('バッジ・設定・登録した情報を、この端末から すべて消します。よろしいですか？（元に戻せません）')){try{localStorage.removeItem(STORE)}catch(e){}state=Object.assign({},defaults,{badges:[],manga:[],bag:[],card:{nick:'',items:[],note:''},contacts:[],plan:{}});applySettings();renderBadges();show('home')}});
 el('speakDone').addEventListener('click',()=>say(el('doneTitle').textContent+'。'+el('doneMsg').textContent));
 el('doneAgain').addEventListener('click',tap(()=>startTopic(currentTopic)));
 el('speakQuestion').addEventListener('click',()=>{const q=quiz[qIndex];say(q.q+'。'+q.a.map((c,i)=>(i===0?'エー。':'ビー。')+c).join('。'))});
