@@ -1,9 +1,9 @@
 'use strict';
 // まもってポン！ Service Worker
 // 中身を変えたら VERSION を上げる（古いキャッシュが消えて新しいファイルに入れかわる）
-const VERSION = 'v1.3.0';
+const VERSION = 'v1.4.0';
 const CACHE = 'bousaipon-' + VERSION;
-const FILES = ['./', './index.html', './manifest.webmanifest', './icon.svg', './icon-192.png', './icon-512.png', './icon-180.png'];
+const FILES = ['./', './index.html', './manifest.webmanifest', './icon.svg', './icon-192.png', './icon-512.png', './icon-180.png', './shelters-sagamihara.js'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting()));

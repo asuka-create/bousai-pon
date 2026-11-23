@@ -136,6 +136,21 @@ button:disabled{opacity:.5;cursor:not-allowed}
 .planbox{background:#f1fbf1;border:3px solid #bfe3c2;border-radius:18px;padding:14px;margin-top:12px;font-weight:900;line-height:1.8;color:#2f5b3a}
 .planbox .k{font-size:13px;color:#5c8a63}
 .planbox .v{font-size:20px}
+/* 避難所えらび */
+.form select{width:100%;font:inherit;font-size:17px;padding:11px;border:2px solid #cfe3ee;border-radius:12px;background:white}
+.shpick .seg button{min-height:48px;font-size:16px}
+.shlist{max-height:340px;overflow:auto;border:2px solid #dcebf3;border-radius:14px;background:white;margin-top:8px}
+.shlist button{display:block;width:100%;text-align:left;border:0;border-bottom:1px solid #e6f0f5;background:white;padding:10px 12px;min-height:56px;color:#2b5f7e}
+.shlist button[aria-pressed="true"]{background:#e3f3ff}
+.shlist .nm{font-weight:950;font-size:17px}
+.shlist .ad{font-size:13px;color:#5a7b8f;font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.chip{font-size:12px;font-weight:900;border-radius:20px;padding:2px 8px;background:#e9f6ec;color:#2f6b3d}
+.chip.s{background:#fff1ca;color:#775b1b}
+.hzrow{display:flex;align-items:center;gap:10px;background:white;border-radius:14px;padding:10px 12px;margin:6px 0;font-weight:950;font-size:18px}
+.hzrow .mk{margin-left:auto;font-size:24px}
+.hzrow.ng{background:#fff3ee;color:#8a3d18}
+.selbox{background:#f1fbf1;border:3px solid #bfe3c2;border-radius:16px;padding:12px;margin-top:10px;font-weight:850;line-height:1.7;color:#2f5b3a}
 body.short #stepDesc{display:none}
 a:focus-visible{outline:4px solid #176ad8;outline-offset:3px}
 @media(prefers-reduced-motion:no-preference){
@@ -322,6 +337,17 @@ body.big .bigbtn{font-size:28px}
   <div class="setitem"><div class="lbl">📞 れんらくさき（最大4件）</div><div id="fContacts"></div></div>
   <div class="setitem"><div class="lbl">🏫 ひなんの けいかく</div>
    <label for="fMeet">家族の集合場所</label><input type="text" id="fMeet" maxlength="40" placeholder="例：〇〇公園の時計の下">
+   <div class="shpick">
+    <div class="lbl" style="font-size:16px;margin:14px 0 6px">📍 相模原市の 避難場所・避難所から えらぶ</div>
+    <div class="seg" id="shWard"><button type="button" data-v="">すべて</button><button type="button" data-v="緑区">緑区</button><button type="button" data-v="中央区">中央区</button><button type="button" data-v="南区">南区</button></div>
+    <label for="shHz">使いたい災害で しぼりこむ</label>
+    <select id="shHz"><option value="">しぼりこまない</option><option value="e">地震</option><option value="f">洪水</option><option value="d">崖崩れ・土石流・地滑り</option><option value="k">大規模な火事</option><option value="n">内水氾濫（まちの浸水）</option></select>
+    <label for="shQ">名前・住所で さがす</label><input type="text" id="shQ" maxlength="30" placeholder="例：小学校、上溝、相模台">
+    <div class="info" id="shCount" style="text-align:left;margin-top:8px"></div>
+    <div class="shlist" id="shList"></div>
+    <div id="shSel"></div>
+    <p class="subtext" style="text-align:left;font-size:13px;margin-top:8px" id="shSource"></p>
+   </div>
    <label for="fPlace">避難場所の名前</label><input type="text" id="fPlace" maxlength="40" placeholder="例：〇〇小学校">
    <label for="fAddr">住所・目印</label><input type="text" id="fAddr" maxlength="80">
    <label for="fMemo">メモ（対応災害・持ち物・注意など）</label><textarea id="fMemo" maxlength="200" placeholder="例：洪水のときは使えない。津波は△△へ"></textarea>
@@ -332,16 +358,17 @@ body.big .bigbtn{font-size:28px}
  </form>
  <div class="setitem"><div class="lbl">⚙️ 表示・音声の設定</div><button class="primary secondary" style="margin-top:0" id="parentSettings">せってい を ひらく</button></div>
  <div class="setitem"><div class="lbl">🔗 公式の防災情報</div>
-  <p class="subtext" style="text-align:left;font-size:15px">避難所の開設状況・避難情報は、必ず公式情報で確認してください。横浜市では公式アプリ「横浜市避難ナビ」も提供されています。</p>
-  <div class="sublinks"><a class="smallbtn" style="flex:1;text-align:center;text-decoration:none;display:flex;align-items:center;justify-content:center" href="https://www.city.yokohama.lg.jp/" target="_blank" rel="noopener">横浜市ホームページ</a><a class="smallbtn" style="flex:1;text-align:center;text-decoration:none;display:flex;align-items:center;justify-content:center" href="https://www.jma.go.jp/bosai/" target="_blank" rel="noopener">気象庁 防災情報</a></div>
+  <p class="subtext" style="text-align:left;font-size:15px">避難所の開設状況・避難情報は、必ず相模原市などの公式情報で確認してください。</p>
+  <div class="sublinks"><a class="smallbtn" style="flex:1;text-align:center;text-decoration:none;display:flex;align-items:center;justify-content:center" href="https://www.city.sagamihara.kanagawa.jp/" target="_blank" rel="noopener">相模原市ホームページ</a><a class="smallbtn" style="flex:1;text-align:center;text-decoration:none;display:flex;align-items:center;justify-content:center" href="https://www.jma.go.jp/bosai/" target="_blank" rel="noopener">気象庁 防災情報</a></div>
   <p class="subtext" style="text-align:left;font-size:14px;margin-top:10px">災害時の安否確認には「災害用伝言ダイヤル（171）」も使えます。</p>
  </div>
- <div class="note">【未実装・第2段階】現在地からの避難所検索、横浜市の避難所・福祉避難所データ、受入条件の表示、開設状況の取得は未実装です。福祉避難所は事前の受入調整が必要な場合があり、アプリの表示で受入を保証するものではありません。</div>
+ <div class="note">【避難所データについて】相模原市の指定緊急避難場所・指定避難所は、国土地理院の公開データ（市が登録したもの）を収録しています。最新でない場合や掲載されていない場所があるため、最新の情報は必ず相模原市に確認してください。指定緊急避難場所は災害の種類ごとに指定されています。<br>【未実装】現在地からの検索、福祉避難所のデータ、受入条件、開設状況の取得は未実装です。福祉避難所は事前の受入調整が必要な場合があり、アプリの表示で受入を保証するものではありません。</div>
  <button class="smallbtn" id="wipeAll" style="width:100%;margin-top:18px">🗑️ このアプリの データを ぜんぶ けす</button>
 </section>
 
-</main><footer class="foot">まもってポン！ 試作版 v1.3／学習・操作確認用<br>© まもってポン！ プロトタイプ</footer>
+</main><footer class="foot">まもってポン！ 試作版 v1.4／学習・操作確認用<br>© まもってポン！ プロトタイプ</footer>
 </div>
+<script src="shelters-sagamihara.js"></script>
 <script>
 'use strict';
 /* ===== データ ===== */
@@ -462,8 +489,12 @@ function renderContacts(){const list=state.contacts.filter(c=>c.name||c.tel);
  el('contactList').innerHTML=list.length?list.map(c=>`<div class="contact"><span class="nm">${esc(c.name||'れんらくさき')}</span>${c.tel?`<a class="callbtn" href="${esc(telHref(c.tel))}">📞 でんわ</a>`:''}</div>`).join(''):'<p class="subtext">まだ とうろく されていないよ。<br>おうちの人に とうろく して もらってね。</p>';}
 
 /* ===== にげる ばしょ（おうちの人と きめた ばしょ） ===== */
+function shelterKidView(p){const s=findShelter(p.shelterId);if(!s)return '';
+ return `<div class="section" style="font-size:19px">この ばしょに にげて いい とき</div>`+HZ.map(h=>{const ok=s.h.includes(h.c);return `<div class="hzrow ${ok?'':'ng'}"><span style="font-size:26px">${h.em}</span>${h.kid}<span class="mk">${ok?'⭕':'✖'}</span></div>`}).join('')+
+ (HZ.some(h=>!s.h.includes(h.c))?`<div class="bubble" style="margin-top:10px">✖ の ときは ここに にげないよ。<br>おとなと べつの ばしょを かくにんしてね。</div>`:'')+
+ `<p class="subtext" style="margin-top:8px;font-size:13px">${esc(s.w)}｜${s.s?'指定避難所にも指定':'指定避難所の指定なし'}｜<a href="${mapUrl(s)}" target="_blank" rel="noopener">地図（おとな用）</a><br>出典：国土地理院（相模原市登録データ、更新日 ${esc(SHD.meta.dataUpdated||'')}）</p>`;}
 function renderPlan(){const p=state.plan||{};
- el('planView').innerHTML=(p.meet||p.place)?`<div class="planbox"><div style="font-size:18px">🏫 おうちの人と きめた ばしょ</div>${p.meet?`<div class="k">しゅうごう ばしょ</div><div class="v">${esc(p.meet)}</div>`:''}${p.place?`<div class="k">ひなん ばしょ</div><div class="v">${esc(p.place)}</div>`:''}${p.addr?`<div class="k">じゅうしょ・めじるし</div><div>${esc(p.addr)}</div>`:''}${p.memo?`<div class="k">メモ</div><div>${esc(p.memo)}</div>`:''}${p.checked?`<div class="k">かくにんした ひ：${esc(p.checked)}</div>`:''}</div><p class="subtext" style="margin-top:8px;font-size:14px">※実際に避難するときは、そのときの公式情報と大人の判断を優先してください。</p>`:'<div class="bubble">まだ ばしょが とうろく されていないよ。<br>おうちの人と いっしょに きめてね。</div>';}
+ el('planView').innerHTML=(p.meet||p.place)?`<div class="planbox"><div style="font-size:18px">🏫 おうちの人と きめた ばしょ</div>${p.meet?`<div class="k">しゅうごう ばしょ</div><div class="v">${esc(p.meet)}</div>`:''}${p.place?`<div class="k">ひなん ばしょ</div><div class="v">${esc(p.place)}</div>`:''}${p.addr?`<div class="k">じゅうしょ・めじるし</div><div>${esc(p.addr)}</div>`:''}${p.memo?`<div class="k">メモ</div><div>${esc(p.memo)}</div>`:''}${p.checked?`<div class="k">かくにんした ひ：${esc(p.checked)}</div>`:''}</div>${shelterKidView(p)}<p class="subtext" style="margin-top:8px;font-size:14px">※実際に避難するときは、そのときの公式情報と大人の判断を優先してください。</p>`:'<div class="bubble">まだ ばしょが とうろく されていないよ。<br>おうちの人と いっしょに きめてね。</div>';}
 
 /* ===== 保護者 ===== */
 function openGate(){el('gateFill').style.width='0';show('gate')}
@@ -473,10 +504,34 @@ function holdEnd(){clearInterval(holdTimer);holdTimer=null;el('gateFill').style.
 function openParent(){const c=state.card,p=state.plan||{};el('fNick').value=c.nick||'';el('fNote').value=c.note||'';
  el('fCardItems').innerHTML=cardDefs.map(([id,em,label])=>`<label class="cbrow"><input type="checkbox" value="${id}" ${c.items.includes(id)?'checked':''}>${em} ${label}</label>`).join('');
  el('fContacts').innerHTML=[0,1,2,3].map(i=>{const x=state.contacts[i]||{};return `<label for="fcN${i}">${i+1}. なまえ・続柄</label><input type="text" id="fcN${i}" maxlength="20" placeholder="例：おかあさん" value="${esc(x.name||'')}"><label for="fcT${i}">電話番号</label><input type="tel" id="fcT${i}" maxlength="20" inputmode="tel" value="${esc(x.tel||'')}">`}).join('<hr style="border:0;border-top:1px dashed #d5e6ed;margin:12px 0">');
- el('fMeet').value=p.meet||'';el('fPlace').value=p.place||'';el('fAddr').value=p.addr||'';el('fMemo').value=p.memo||'';el('fChecked').value=p.checked||'';el('saveMsg').classList.add('hidden');show('parent');}
+ el('fMeet').value=p.meet||'';el('fPlace').value=p.place||'';el('fAddr').value=p.addr||'';el('fMemo').value=p.memo||'';el('fChecked').value=p.checked||'';el('saveMsg').classList.add('hidden');
+ pickedId=findShelter(p.shelterId)?p.shelterId:'';shWard='';el('shHz').value='';el('shQ').value='';renderShelterPicker();show('parent');}
+
+/* ===== 相模原市の避難所データ ===== */
+const SHD=window.SHELTER_DATA||{meta:{},list:[]};
+// 子ども向けの ことば と 大人向けの ことば
+const HZ=[{c:'e',kid:'じしん',em:'🏠',adult:'地震'},{c:'f',kid:'おおあめ（かわの みず）',em:'🌊',adult:'洪水'},{c:'d',kid:'がけくずれ',em:'⛰️',adult:'崖崩れ・土石流・地滑り'},{c:'k',kid:'おおきな かじ',em:'🔥',adult:'大規模な火事'},{c:'n',kid:'まちが みずびたし',em:'💧',adult:'内水氾濫'}];
+let pickedId='',shWard='';
+function findShelter(id){return id?SHD.list.find(s=>s.id===id):null}
+function hzChips(s){return HZ.filter(h=>s.h.includes(h.c)).map(h=>`<span class="chip">${h.adult}</span>`).join('')+(s.s?'<span class="chip s">指定避難所</span>':'')}
+function mapUrl(s){return `https://maps.gsi.go.jp/#17/${s.la}/${s.lo}/`}
+function renderShelterPicker(){
+ if(!SHD.list.length){el('shCount').textContent='避難所データを読み込めませんでした。名前と住所を手で入力してください。';el('shList').innerHTML='';el('shSel').innerHTML='';return}
+ el('shWard').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===shWard)));
+ const hz=el('shHz').value,q=el('shQ').value.trim();
+ const hits=SHD.list.filter(s=>(!shWard||s.w===shWard)&&(!hz||s.h.includes(hz))&&(!q||s.n.includes(q)||s.a.includes(q)));
+ const MAX=60;
+ el('shCount').textContent=`${hits.length} 件${hits.length>MAX?`（先頭 ${MAX} 件を表示。名前・住所でしぼりこめます）`:''}`;
+ el('shList').innerHTML=hits.slice(0,MAX).map(s=>`<button type="button" data-id="${s.id}" aria-pressed="${s.id===pickedId}"><div class="nm">${esc(s.n)}</div><div class="ad">${esc(s.w)}｜${esc(s.a)}</div><div class="chips">${hzChips(s)}</div></button>`).join('')||'<div class="info" style="padding:12px">見つかりませんでした</div>';
+ el('shList').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>pickShelter(b.dataset.id)));
+ const s=findShelter(pickedId);
+ el('shSel').innerHTML=s?`<div class="selbox">✅ えらんだ場所：<b>${esc(s.n)}</b>（${esc(s.w)}）<br>使える災害：${HZ.filter(h=>s.h.includes(h.c)).map(h=>h.adult).join('・')||'指定緊急避難場所ではありません（災害直後に逃げる場所としては指定なし）'}<br>${HZ.filter(h=>!s.h.includes(h.c)).length?`<span style="color:#8a3d18">⚠️ 指定されていない災害：${HZ.filter(h=>!s.h.includes(h.c)).map(h=>h.adult).join('・')}。その災害のときの避難先を、別に決めておきましょう。</span><br>`:''}${s.s?'指定避難所（避難生活を送る場所）にも指定されています。<br>':''}<a href="${mapUrl(s)}" target="_blank" rel="noopener">🗺️ 地理院地図で場所を見る</a>　<button type="button" class="smallbtn" id="shClear" style="min-height:40px">えらび なおす</button></div>`:'';
+ if(s)el('shClear').addEventListener('click',()=>{pickedId='';el('fPlace').value='';el('fAddr').value='';renderShelterPicker()});
+ const m=SHD.meta;el('shSource').textContent=m.source?`出典：${m.source}（データ更新日 ${m.dataUpdated}／取得日 ${m.fetched}）。最新でない場合や未掲載の場合があります。最新の情報は相模原市に確認してください。`:'';}
+function pickShelter(id){const s=findShelter(id);if(!s)return;pickedId=id;el('fPlace').value=s.n;el('fAddr').value=s.a;renderShelterPicker();el('shSel').scrollIntoView({block:'nearest'});}
 function saveParent(){state.card={nick:el('fNick').value.trim(),note:el('fNote').value.trim(),items:[...el('fCardItems').querySelectorAll('input:checked')].map(x=>x.value)};
  state.contacts=[0,1,2,3].map(i=>({name:el('fcN'+i).value.trim(),tel:el('fcT'+i).value.trim()})).filter(c=>c.name||c.tel);
- state.plan={meet:el('fMeet').value.trim(),place:el('fPlace').value.trim(),addr:el('fAddr').value.trim(),memo:el('fMemo').value.trim(),checked:el('fChecked').value};
+ state.plan={meet:el('fMeet').value.trim(),place:el('fPlace').value.trim(),addr:el('fAddr').value.trim(),memo:el('fMemo').value.trim(),checked:el('fChecked').value,shelterId:pickedId};
  save();el('saveMsg').classList.remove('hidden');}
 
 /* ===== S03 災害選択 ===== */
@@ -551,6 +606,9 @@ el('gateHold').addEventListener('contextmenu',e=>e.preventDefault());
 el('gateHold').addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&!e.repeat)holdBegin(e)});
 el('gateHold').addEventListener('keyup',holdEnd);
 el('saveParent').addEventListener('click',saveParent);
+el('shWard').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{shWard=b.dataset.v;renderShelterPicker()}));
+el('shHz').addEventListener('change',renderShelterPicker);
+el('shQ').addEventListener('input',renderShelterPicker);
 el('parentSettings').addEventListener('click',tap(()=>show('settings')));
 el('wipeAll').addEventListener('click',()=>{if(confirm('バッジ・設定・登録した情報を、この端末から すべて消します。よろしいですか？（元に戻せません）')){try{localStorage.removeItem(STORE)}catch(e){}state=Object.assign({},defaults,{badges:[],manga:[],bag:[],card:{nick:'',items:[],note:''},contacts:[],plan:{}});applySettings();renderBadges();show('home')}});
 el('speakDone').addEventListener('click',()=>say(el('doneTitle').textContent+'。'+el('doneMsg').textContent));
